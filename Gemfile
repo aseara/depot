@@ -36,3 +36,15 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# WARN  Could not determine content-length of response body.
+# Set content-length of the response or set Response#chunked = true
+#
+# It is indeed a WEBrick issue.
+#
+# @KenThompson the problem is Webrick, not Rails.
+# Webrick do not support keep-alive connections and thus raises the warning/issue
+# we're seeing. It is recommended you use a proper/better webserver
+# (like thin or passenger standalone) for web.
+# Upcoming versions of Ruby will fix this issue.
+#gem 'thin'
